@@ -1,5 +1,6 @@
 package usts.pycro.boot.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,7 +14,7 @@ import usts.pycro.boot.bean.Car;
  */
 //@Controller
 //@ResponseBody
-
+@Slf4j
 @RestController
 public class HelloController {
 
@@ -21,8 +22,9 @@ public class HelloController {
     private Car car;
 
     @RequestMapping("/hello")
-    public String handle01(@RequestParam(value = "name",defaultValue = "") String name) {
-        return "Hello, Spring Boot 2!" + "<br/>你好："+name;
+    public String handle01(@RequestParam(value = "name", defaultValue = "") String name) {
+        log.info("hello请求进来了");
+        return "Hello, Spring Boot 2! --dev-tools" + "<br/>你好：" + name;
     }
 
     @RequestMapping("/car")
