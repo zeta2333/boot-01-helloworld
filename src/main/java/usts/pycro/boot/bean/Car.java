@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * @version 1.0
  * 2023-04-08 2:16 PM
  */
-@Component //只用容器中的组件，才会拥有SpringBoot提供的强大功能
+@Component //只有容器中的组件，才会拥有SpringBoot提供的强大功能
 @ConfigurationProperties(prefix = "mycar")
 public class Car {
     private String brand;

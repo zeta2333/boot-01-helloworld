@@ -3,6 +3,7 @@ package usts.pycro.boot;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
@@ -25,10 +26,10 @@ public class MainApplication {
         ConfigurableApplicationContext run = SpringApplication.run(MainApplication.class, args);
 
         //2.查看容器里面的组件
-        //String[] names = run.getBeanDefinitionNames();
-        //for (String name : names) {
-        //    System.out.println(name);
-        //}
+        String[] names = run.getBeanDefinitionNames();
+        for (String name : names) {
+            System.out.println(name);
+        }
         //
         //String[] beanNamesForType = run.getBeanNamesForType(User.class);
         //System.out.println("============");
@@ -46,6 +47,11 @@ public class MainApplication {
         System.out.println("uu：" + uu);
         boolean pp = run.containsBean("pp");
         System.out.println("pp：" + pp);
+
+        System.out.println("容器中组件的数量为："+run.getBeanDefinitionCount());
+
+        String[] beanNamesForType = run.getBeanNamesForType(WebMvcProperties.class);
+        System.out.println("WebMvc:"+beanNamesForType.length);
 
     }
 }
